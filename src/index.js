@@ -6,6 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
         doggoData.forEach(pup => {
             const newSpanElement = document.createElement('span')
             newSpanElement.textContent = pup.name
+            newSpanElement.addEventListener('click', () => {
+                const dogInfoSection = document.querySelector('#dog-info')
+                dogInfoSection.innerHTML = ''
+                const pupImage = document.createElement('img')
+                const pupName = document.createElement('h2')
+                const pupButton = document.createElement('button')
+                pupImage.src = pup.image
+                pupName.textContent = pup.name
+                pupButton.textContent = pup.isGoodDog ? 'Good Dog!' : 'Bad Dog!'
+                dogInfoSection.appendChild(pupImage)
+                dogInfoSection.appendChild(pupName)
+                dogInfoSection.appendChild(pupButton)
+            })
             dogBar.appendChild(newSpanElement)
         })        
     })
